@@ -43,4 +43,4 @@ telephone.Observer(dailing);
 
 telephone.addNumber(09027742423);
 telephone.dail(0902774242);
-telephone.notifyObservers(0902774242);
+
