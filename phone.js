@@ -3,33 +3,34 @@ class Phone {
     this.observersNumber = new Set();
     this.addedObservers = new Set();
   }
-  addNumber(observersNo) {
-    this.observersNumber.add(observersNo);
+
+  addNumber(observersNunmber) {
+    this.observersNumber.add(observersNunmber);
   }
   remove(observersNumber) {
     this.observersNumber.delete(observersNumber);
   }
-  dail(observersNo) {
-    this.notifyObservers(observersNo);
+  dail(observersNunmber) {
+    this.notifyObservers(observersNunmber);
   }
   Observer(addedObservers) {
     this.observersNumber.add(addedObservers);
   }
-  notifyObserver(observersNo) {
+  notifyObservers(observersNunmber) {
     this.observersNumber.forEach(observersNumber =>
-      observersNumber.notify(observersNo)
+      observersNumber.notify(observersNunmber)
     );
   }
 }
 
 class Observer {
-  notify(observersNo) {
-    console.log(observersNo);
+  notify(observersNunmber) {
+    console.log(observersNunmber);
   }
 }
 class Dailer {
-  notify(observersNo) {
-    console.log(`DAILING....... ${observersNo}`);
+  notify(observersNunmber) {
+    console.log(`DAILING....... ${observersNunmber}`);
   }
 }
 
@@ -37,10 +38,9 @@ let telephone = new Phone();
 let observe = new Observer();
 let dailing = new Dailer();
 
-telephone.addNumber(09027742423);
-telephone.addNumber(08028984138);
-telephone.addNumber(08063386594);
-telephone.Observer(dailing);
 telephone.Observer(observe);
+telephone.Observer(dailing);
 
-console.log(telephone);
+telephone.addNumber(09027742423);
+telephone.dail(0902774242);
+telephone.notifyObservers(0902774242);
