@@ -13,11 +13,14 @@ class Phone {
   dail(observersNunmber) {
     this.notifyObservers(observersNunmber);
   }
-  Observer(addedObservers) {
-    this.observersNumber.add(addedObservers);
+  addObserver(addedObservers) {
+    this.addedObservers.add(addedObservers);
+  }
+  removeObserver(observersNumber) {
+    this.addedObservers = this.observersNumber.delete(observer);
   }
   notifyObservers(observersNunmber) {
-    this.observersNumber.forEach(observersNumber =>
+    this.addedObservers.forEach(observersNumber =>
       observersNumber.notify(observersNunmber)
     );
   }
@@ -38,9 +41,8 @@ let telephone = new Phone();
 let observe = new Observer();
 let dailing = new Dailer();
 
-telephone.Observer(observe);
-telephone.Observer(dailing);
+telephone.addObserver(observe);
+telephone.addObserver(dailing);
 
 telephone.addNumber(09027742423);
 telephone.dail(0902774242);
-
